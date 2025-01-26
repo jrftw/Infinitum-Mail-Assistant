@@ -1,5 +1,7 @@
 /*****************************************************************************
  MARK: GoogleSignInButton.swift
+ Description:
+   Simple button for initiating Google sign-in process.
 *****************************************************************************/
 
 import SwiftUI

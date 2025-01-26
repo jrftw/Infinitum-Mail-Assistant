@@ -1,5 +1,8 @@
 /*****************************************************************************
  MARK: UnsubscribeEmail.swift
+ Description:
+   Data model and view for unsubscribable emails.
+   Fetches from Google Apps Script and unsubscribes selected messages.
 *****************************************************************************/
 
 import SwiftUI

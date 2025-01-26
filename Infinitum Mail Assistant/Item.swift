@@ -1,5 +1,7 @@
 /*****************************************************************************
  MARK: ItemPlaceholder.swift
+ Description:
+   Example placeholder struct (unused) for potential SwiftData model.
 *****************************************************************************/
 
 //import Foundation

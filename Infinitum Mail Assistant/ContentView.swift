@@ -1,5 +1,8 @@
 /*****************************************************************************
  MARK: UpdatedContentView.swift
+ Description:
+   Main content view that displays login or duplication/unsubscribe options.
+   Compatible with iOS 15.6+, macOS 11.5+, visionOS 2.0+.
 *****************************************************************************/
 
 import SwiftUI

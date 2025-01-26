@@ -1,5 +1,7 @@
 /*****************************************************************************
  MARK: DuplicateEmail.swift
+ Description:
+   Data model for duplicate emails, and view to display and remove them.
 *****************************************************************************/
 
 import SwiftUI

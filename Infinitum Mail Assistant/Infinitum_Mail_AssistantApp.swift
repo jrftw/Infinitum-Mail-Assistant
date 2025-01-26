@@ -1,5 +1,8 @@
 /*****************************************************************************
  MARK: UpdatedInfinitum_Mail_AssistantApp.swift
+ Description:
+   Entry point of the app.
+   Compatible with iOS 15.6+, macOS 11.5+, visionOS 2.0+.
 *****************************************************************************/
 
 import SwiftUI

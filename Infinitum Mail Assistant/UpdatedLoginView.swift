@@ -1,13 +1,7 @@
-//
-//  UpdatedLoginView.swift
-//  Infinitum Mail Assistant
-//
-//  Created by Kevin Doyle Jr. on 1/24/25.
-//
-
-
 /*****************************************************************************
  MARK: UpdatedLoginView.swift
+ Description:
+   View that handles sign-in, sign-out, and shows the currently signed in user.
 *****************************************************************************/
 
 import SwiftUI

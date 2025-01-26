@@ -1,22 +1,38 @@
-<!--
- MARK: Info.plist
- Description:
-   Example Info.plist snippet with the reversed client ID from your
-   Google Cloud credentials. Make sure to replace "com.googleusercontent.apps.xxxxx-xxxxx"
-   with the exact reversed ID from your iOS credentials.
--->
-
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+   "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <!-- MARK: UIBackgroundModes (optional) -->
+
+  <!-- MARK: Required App Keys -->
+  <key>CFBundleDevelopmentRegion</key>
+  <string>$(DEVELOPMENT_LANGUAGE)</string>
+  <key>CFBundleExecutable</key>
+  <string>$(EXECUTABLE_NAME)</string>
+  <key>CFBundleIdentifier</key>
+  <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+  <key>CFBundleInfoDictionaryVersion</key>
+  <string>6.0</string>
+  <key>CFBundleName</key>
+  <string>$(PRODUCT_NAME)</string>
+  <key>CFBundleDisplayName</key>
+  <string>$(PRODUCT_NAME)</string>
+  <key>CFBundlePackageType</key>
+  <string>APPL</string>
+  <key>CFBundleShortVersionString</key>
+  <string>1.0</string>
+  <key>CFBundleVersion</key>
+  <string>1</string>
+  <key>LSRequiresIPhoneOS</key>
+  <true/>
+
+  <!-- MARK: Optional: Remote Notifications -->
   <key>UIBackgroundModes</key>
   <array>
     <string>remote-notification</string>
   </array>
-  
-  <!-- MARK: GoogleSignIn - Reversed client ID -->
+
+  <!-- MARK: Google Sign-In - Reversed Client ID -->
   <key>CFBundleURLTypes</key>
   <array>
     <dict>
@@ -26,8 +42,6 @@
       </array>
     </dict>
   </array>
-  
-  <!-- Optional: Additional background or iCloud keys as needed -->
-  
+
 </dict>
 </plist>

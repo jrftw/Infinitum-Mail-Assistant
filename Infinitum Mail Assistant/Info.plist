@@ -1,10 +1,33 @@
+<!--
+ MARK: Info.plist
+ Description:
+   Example Info.plist snippet with the reversed client ID from your
+   Google Cloud credentials. Make sure to replace "com.googleusercontent.apps.xxxxx-xxxxx"
+   with the exact reversed ID from your iOS credentials.
+-->
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>remote-notification</string>
-	</array>
+  <!-- MARK: UIBackgroundModes (optional) -->
+  <key>UIBackgroundModes</key>
+  <array>
+    <string>remote-notification</string>
+  </array>
+  
+  <!-- MARK: GoogleSignIn - Reversed client ID -->
+  <key>CFBundleURLTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>com.googleusercontent.apps.105380332603-jbevkbsd2gp6p63lrv7k54rki0kcoqtq</string>
+      </array>
+    </dict>
+  </array>
+  
+  <!-- Optional: Additional background or iCloud keys as needed -->
+  
 </dict>
 </plist>

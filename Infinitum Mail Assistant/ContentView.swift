@@ -1,66 +1,42 @@
-//
-//  ContentView.swift
-//  Infinitum Mail Assistant
-//
-//  Created by Kevin Doyle Jr. on 1/24/25.
-//
+/*****************************************************************************
+ MARK: UpdatedContentView.swift
+*****************************************************************************/
 
 import SwiftUI
-import SwiftData
+import os.log
 
-struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
+struct UpdatedContentView: View {
+    @StateObject private var signInManager = GoogleSignInManager()
+    @State private var showDuplicates = false
+    @State private var showUnsubscribe = false
+    
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+        NavigationView {
+            if !signInManager.isLoggedIn {
+                UpdatedLoginView(signInManager: signInManager)
+            } else {
+                VStack(spacing: 20) {
+                    Text("Infinitum Mail Assistant")
+                        .font(.title)
+                    Button("Check for Duplicates") {
+                        showDuplicates = true
+                    }
+                    .font(.headline)
+                    .sheet(isPresented: $showDuplicates) {
+                        DuplicateListView(userEmail: signInManager.userEmail)
+                    }
+                    
+                    Button("Mass Unsubscribe") {
+                        showUnsubscribe = true
+                    }
+                    .font(.headline)
+                    .sheet(isPresented: $showUnsubscribe) {
+                        UnsubscribeView(userEmail: signInManager.userEmail)
                     }
                 }
-                .onDelete(perform: deleteItems)
-            }
-#if os(macOS)
-            .navigationSplitViewColumnWidth(min: 180, ideal: 200)
-#endif
-            .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-#endif
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+                .padding()
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
-}
-
-#Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
 }
